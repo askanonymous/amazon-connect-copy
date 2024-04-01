@@ -1241,6 +1241,8 @@ EOD
         echo "Instance ID: $instance_id_b"
         echo "Flow ID: $flow_id_b"
         echo "Content String: file://$helper/$flow_json"
+        file_path="diff/flow_LSP-CallCenter-Flow-latest.json"
+        cat "$file_path"
 
         aws_connect update-contact-flow-content \
             --instance-id $instance_id_b \
