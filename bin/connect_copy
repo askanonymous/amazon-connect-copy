@@ -1183,6 +1183,13 @@ else
     while read flow_json; do
         ii=$[ii+1]
         echo -n "$ii. $flow_json ... "
+
+        # Add the condition to skip specific flow_json
+        if [ "$flow_json" = "flow_LSP-CallCenter-Flow-latest.json" ]; then
+            echo "Skipping $flow_json"
+            continue
+        fi
+        
         flow_name=${flow_json#flow_}
         flow_name=${flow_name%.json}
         flow_name_decoded=$(path_decode "$flow_name")
